@@ -4,6 +4,7 @@ import map from "../../images/map.jpg";
 import doctors from "../../images/doctors.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const About = () => {
   return (
@@ -41,8 +42,10 @@ const About = () => {
               doctors, nurse and stuffs work on regular shift to provide you the
               consistent service.
               <br />
-              Click to see our <Link to="/home#services">Services</Link> to see
-              our services.
+              Click to see our <HashLink to="/home#services">
+                Services
+              </HashLink>{" "}
+              to see our services.
             </h5>
           </div>
         </div>

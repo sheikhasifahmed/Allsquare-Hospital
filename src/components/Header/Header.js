@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import useFirebase from "../../Firebase/useFirebase";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Header.css";
@@ -15,14 +16,14 @@ const Header = () => {
           <NavLink to="/home" style={navstyle}>
             Home
           </NavLink>
-          <a href="/home#services" style={navstyle}>
+          <HashLink to="/home#services" style={navstyle}>
             Services
-          </a>
+          </HashLink>
           <NavLink to="/aboutUs" style={navstyle}>
             About Us
           </NavLink>
-          <NavLink to="/review" style={navstyle}>
-            Review
+          <NavLink to="/appoinment" style={navstyle}>
+            Appoinment
           </NavLink>
         </div>
 

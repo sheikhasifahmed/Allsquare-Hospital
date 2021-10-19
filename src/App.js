@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import About from "./components/About/About";
+import Appoinment from "./components/Appoinment/Appoinment";
 
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -9,7 +10,7 @@ import Login from "./components/Login/Login";
 import NotFound from "./components/NotFound/NotFound";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Register from "./components/Register/Register";
-import Review from "./components/Review/Review";
+
 import Services from "./components/Services/Services";
 import Service from "./components/Services/Single/Service";
 
@@ -31,8 +32,8 @@ function App() {
           <Route path="/aboutUs">
             <About></About>
           </Route>
-          <Route path="/review">
-            <Review></Review>
+          <Route path="/appoinment">
+            <Appoinment></Appoinment>
           </Route>
           <Route path="/login">
             <Login></Login>
