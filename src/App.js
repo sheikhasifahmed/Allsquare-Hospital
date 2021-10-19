@@ -41,12 +41,13 @@ function App() {
           <Route path="/register">
             <Register></Register>
           </Route>
-          <Route path="*">
-            <NotFound></NotFound>
-          </Route>
-          <PrivateRoute path="/service/:serviceName">
+
+          <PrivateRoute exact path="/service/:serviceName">
             <Service></Service>
           </PrivateRoute>
+          <Route to="*">
+            <NotFound></NotFound>
+          </Route>
         </Switch>
         <Footer></Footer>
       </BrowserRouter>

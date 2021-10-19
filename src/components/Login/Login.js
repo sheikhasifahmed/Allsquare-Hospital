@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useHistory, useLocation } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
 import { Button, Form } from "react-bootstrap";
 import icon from "../../images/google.ico";
 import useFirebase from "../../Firebase/useFirebase";
+import userEvent from "@testing-library/user-event";
 
 const Login = () => {
+  const history = useHistory();
+  const location = useLocation();
+  const redirect_uri = location.state?.from || "/home";
+
   const { signWithGoogle } = useFirebase();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +28,15 @@ const Login = () => {
 
   const login = (e) => {
     e.preventDefault();
-    loginWithEmail(email, password);
+    loginWithEmail(email, password).then((userCredential) => {
+      history.push(redirect_uri);
+    });
+  };
+
+  const googleLogin = () => {
+    signWithGoogle().then((result) => {
+      history.push(redirect_uri);
+    });
   };
 
   return (
@@ -74,7 +88,7 @@ const Login = () => {
             --------OR------- <br />
           </h3>
 
-          <Button onClick={signWithGoogle} variant="outline-success">
+          <Button onClick={googleLogin} variant="outline-success">
             <img width="20" src={icon} alt="" />
             Login With Google
           </Button>

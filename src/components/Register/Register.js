@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useHistory, useLocation } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form } from "react-bootstrap";
 import useFirebase from "../../Firebase/useFirebase";
 import icon from "../../images/google.ico";
 
 const Register = () => {
+  const history = useHistory();
+  const location = useLocation();
+  const redirect_uri = location.state?.from || "/home";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { signWithGoogle } = useFirebase();
+
+  const googleLogin = () => {
+    signWithGoogle().then((result) => {
+      history.push(redirect_uri);
+    });
+  };
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -22,7 +32,9 @@ const Register = () => {
 
   const register = (e) => {
     e.preventDefault();
-    registerWithEmail(email, password);
+    registerWithEmail(email, password).then((userCredential) => {
+      history.push("/home");
+    });
   };
 
   return (
@@ -72,17 +84,12 @@ const Register = () => {
           <h3 className="mb-2 mt-5">
             --------OR------- <br />
           </h3>
-          <Button onClick={signWithGoogle} variant="outline-success">
+          <Button onClick={googleLogin} variant="outline-success">
             <img width="20" src={icon} alt="" />
             Login with Google
           </Button>
         </div>
       </div>
-
-      {/* <div>
-        <h3>Your Email: {email}</h3>
-        <h3>Your Password: {password}</h3>
-      </div> */}
     </div>
   );
 };

@@ -22,25 +22,15 @@ function useFirebase() {
   const auth = getAuth();
 
   const signWithGoogle = () => {
-    signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        console.log(result.user);
-      })
-      .finally(() => setIsLoading(false));
+    return signInWithPopup(auth, googleProvider);
   };
 
   function registerWithEmail(email, password) {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential.user);
-      })
-      .finally(() => setIsLoading(false));
+    return createUserWithEmailAndPassword(auth, email, password);
   }
 
   function loginWithEmail(email, password) {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {})
-      .finally(() => setIsLoading(false));
+    return signInWithEmailAndPassword(auth, email, password);
   }
 
   const logOut = () => {
