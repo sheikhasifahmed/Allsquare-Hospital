@@ -6,3 +6,12 @@
   position: fixed;
   width: 100%;
 }
+
+.navstyle {
+  text-decoration: none;
+  color: white;
+}
+
+.navstyle:hover {
+  background-color: wheat;
+}

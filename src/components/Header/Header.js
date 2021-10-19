@@ -8,21 +8,26 @@ import "./Header.css";
 
 const Header = () => {
   const { user, logOut } = useFirebase();
-  const navstyle = { textDecoration: "none", color: "white" };
+
+  const navact = { textDecoration: "none", color: "red", fontWeight: "700" };
   return (
     <div className="header">
       <nav className="row">
         <div className="col-lg-6 d-flex justify-content-between">
-          <NavLink to="/home" style={navstyle}>
+          <NavLink to="/home" className="navstyle" activeStyle={navact}>
             Home
           </NavLink>
-          <HashLink to="/home#services" style={navstyle}>
+          <HashLink
+            to="/home#services"
+            className="navstyle"
+            activeStyle={navact}
+          >
             Services
           </HashLink>
-          <NavLink to="/aboutUs" style={navstyle}>
+          <NavLink to="/aboutUs" className="navstyle" activeStyle={navact}>
             About Us
           </NavLink>
-          <NavLink to="/appoinment" style={navstyle}>
+          <NavLink to="/appoinment" className="navstyle" activeStyle={navact}>
             Appoinment
           </NavLink>
         </div>
@@ -40,7 +45,7 @@ const Header = () => {
               </Button>
             </div>
           ) : (
-            <NavLink style={navstyle} to="/login">
+            <NavLink className="navstyle" activeStyle={navact} to="/login">
               Login
             </NavLink>
           )}
