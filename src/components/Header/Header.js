@@ -35,7 +35,7 @@ const Header = () => {
         <div className="col-lg-6 d-flex justify-content-end">
           {user.email ? (
             <div>
-              {user.email}
+              {user.displayName}
               <Button
                 className="ms-auto"
                 variant="outline-light"
