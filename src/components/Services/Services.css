@@ -1,0 +1,12 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.service-head {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}

@@ -1,0 +1,16 @@
+.banner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 100px;
+  background-color: darkslateblue;
+  padding-top: 80px;
+}
+
+.banner img {
+  width: 100%;
+}
+
+.banner-text {
+  padding: 50px;
+  color: whitesmoke;
+}
