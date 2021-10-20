@@ -8,6 +8,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 
@@ -31,6 +32,12 @@ function useFirebase() {
 
   function loginWithEmail(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
+  }
+
+  function updateUserName(displayName) {
+    updateProfile(auth.currentUser, {
+      displayName: displayName,
+    }).then(() => {});
   }
 
   const logOut = () => {
@@ -57,6 +64,7 @@ function useFirebase() {
     signWithGoogle,
     registerWithEmail,
     loginWithEmail,
+    updateUserName,
     logOut,
     isLoading,
   };

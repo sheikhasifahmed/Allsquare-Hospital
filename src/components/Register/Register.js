@@ -12,8 +12,9 @@ const Register = () => {
   const redirect_uri = location.state?.from || "/home";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
-  const { signWithGoogle } = useFirebase();
+  const { signWithGoogle, registerWithEmail, updateUserName } = useFirebase();
 
   const googleLogin = () => {
     signWithGoogle().then((result) => {
@@ -28,12 +29,20 @@ const Register = () => {
     setPassword(e.target.value);
   };
 
-  const { registerWithEmail } = useFirebase();
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
+
+  const updateName = () => {
+    updateUserName(name);
+  };
 
   const register = (e) => {
     e.preventDefault();
-    registerWithEmail(email, password).then((userCredential) => {
+    registerWithEmail(email, password).then(() => {
+      updateName();
       history.push("/home");
+      window.location.reload();
     });
   };
 
@@ -45,6 +54,14 @@ const Register = () => {
             Create an account with Email & password
           </h5>
           <Form onSubmit={register} className="form-style   mx-auto">
+            <Form.Group className="mb-3" controlId="formBasicName">
+              <Form.Label>User Name</Form.Label>
+              <Form.Control
+                onBlur={handleName}
+                type="text"
+                placeholder="Enter user name"
+              />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control

@@ -32,22 +32,21 @@ const Header = () => {
           </NavLink>
         </div>
 
-        <div className="col-lg-6 d-flex justify-content-end">
+        <div className="col-lg-6">
           {user.email ? (
-            <div>
-              {user.displayName}
-              <Button
-                className="ms-auto"
-                variant="outline-light"
-                onClick={logOut}
-              >
+            <div className="d-flex justify-content-end align-items-center">
+              <div className="pe-2">{user.displayName}</div>
+
+              <Button variant="outline-light" onClick={logOut}>
                 Logout
               </Button>
             </div>
           ) : (
-            <NavLink className="navstyle" activeStyle={navact} to="/login">
-              Login
-            </NavLink>
+            <div className="d-flex justify-content-end">
+              <NavLink className="navstyle" activeStyle={navact} to="/login">
+                Login
+              </NavLink>
+            </div>
           )}
         </div>
       </nav>
