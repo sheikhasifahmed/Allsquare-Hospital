@@ -8,12 +8,14 @@ const Footer = () => {
         marginTop: "50px",
         backgroundColor: "black",
         padding: "30px",
-        color: "whitesmoke",
+        color: "gold",
       }}
     >
       <p>
-        All rights reserved by hospital authourity. contact us in
-        email:hospitalauthority@hp.com
+        All types of condition & copyrights© reserved by Allsquare Hospital
+        authourity. <br />
+        contact us: <br />
+        Email:hospitalauthority@hp.com <br /> Phone: 0123456789
       </p>
     </div>
   );

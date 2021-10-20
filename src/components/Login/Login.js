@@ -94,11 +94,6 @@ const Login = () => {
           </Button>
         </div>
       </div>
-
-      {/* <div>
-        <h3>Your Email: {email}</h3>
-        <h3>Your Password: {password}</h3>
-      </div> */}
     </div>
   );
 };

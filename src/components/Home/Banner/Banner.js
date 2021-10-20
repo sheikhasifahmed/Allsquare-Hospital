@@ -18,7 +18,7 @@ const Banner = () => {
         <img src={bannerPic} alt="" />
       </div>
       <div className="banner-text">
-        <h1>Allsqure Hospital</h1>
+        <h1>Allsquare Hospital</h1>
         <h3>
           We are here for you <br />
           With the best Doctosr and best services
