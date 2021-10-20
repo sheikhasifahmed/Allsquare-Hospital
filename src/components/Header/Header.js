@@ -35,7 +35,9 @@ const Header = () => {
         <div className="col-lg-6">
           {user.email ? (
             <div className="d-flex justify-content-end align-items-center">
-              <div className="pe-2">{user.displayName}</div>
+              <div className="pe-2" style={{ fontSize: "large" }}>
+                {user.displayName}
+              </div>
 
               <Button variant="outline-light" onClick={logOut}>
                 Logout
