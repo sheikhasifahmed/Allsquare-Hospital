@@ -11,11 +11,11 @@
   text-decoration: none;
   color: white;
   font-size: large;
-  padding: 5px;
+  padding: 5px 15px;
 }
 
 .navstyle:hover {
-  background-color: rgba(245, 222, 179, 0.493);
+  background-color: rgba(245, 222, 179, 0.253);
   color: white;
   border-radius: 8px;
 }
