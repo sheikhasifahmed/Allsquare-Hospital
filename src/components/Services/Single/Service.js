@@ -9,15 +9,21 @@ const Service = () => {
 
   const [selected, setSelected] = useState({});
 
-  const servs = useData();
+  // const servs = useData();
+
+  // useEffect(() => {
+  //   if (servs.length) {
+  //     const found = servs.find((d) => d.service === serviceName);
+
+  //     setSelected(found);
+  //   }
+  // }, [servs]);
 
   useEffect(() => {
-    if (servs.length) {
-      const found = servs.find((d) => d.service === serviceName);
-
-      setSelected(found);
-    }
-  }, [servs]);
+    fetch(`https://damp-chamber-30165.herokuapp.com/service/${serviceName}`)
+      .then((res) => res.json())
+      .then((data) => setSelected(data));
+  }, []);
 
   const { service, days, hours, doctors, description, image } = selected;
 
